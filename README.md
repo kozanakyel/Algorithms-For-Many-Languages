@@ -1,0 +1,1 @@
+This repo shows my C language self learning process for python and Cpython adoption. After this process we are easily increasing our machine learning python codes and project speed up. Not only related basic concepts additionally we purpoesses some algorithms and data structures concepts remeber and study again. 
