@@ -2,30 +2,44 @@
 #include <ctype.h>
 
 #define SIZE 10
+#define MAXLINE 1000
 
 int getch(void);
 void ungetch(int);
 int getint(int *);
+int strend(char *s,char *t);
+int mystrlen(char *t);
+int mgetline(char s[],int lim);
 
 int main(){
-    int n, r, array[SIZE];
-    for(int i=0; i<SIZE; i++){
-        array[i]=999;
-    }
-    for(n = 0; n < SIZE; n++)
-    {
-        if ((r =getint(&array[n])) == 0) {
-            getch();
-        }
-        if (r == EOF) {
-            continue;
-        }
-    }
-    for(int i = 0; i < SIZE; i++)
-    {printf("array[%d] = %d\n", i, array[i]);}
+
+    char s[MAXLINE],t[MAXLINE];
+    int ret;
+    mgetline(s,MAXLINE);
+    mgetline(t,MAXLINE);
+    ret = strend(s,t);
+    printf("%d",ret);
 
     return 0;
 }
+
+int mgetline(char s[],int lim)
+{
+    int c,i;
+    
+    for(i=0;i<lim-1 && ((c=getchar())!=EOF) && c!='\n';++i)
+        s[i]=c;
+
+    if(c=='\n')
+    {
+        s[i]=c;
+        ++i;
+    }
+    s[i]='\0';
+
+    return i;
+}
+
 
 int getint(int *pn)
 {
@@ -87,4 +101,48 @@ void ungetch(int c)
     else
         buf[bufp++] = c;
     
+}
+
+int strend(char *s,char *t)
+{
+    int len;
+    len=mystrlen(t);
+    while(*s!='\0'){
+        printf("s value: %c\n", *s);
+        ++s;
+    }
+    printf("s out value: %c\n", *s);
+    --s;
+    printf("s out operand value: %c\n", *s);
+
+    while(*t!='\0'){
+        printf("t value: %c\n", *t);
+        ++t;
+        
+    }        
+    --t;
+    while(len > 0)
+    {
+        if(*t==*s)
+        {
+            --t;
+            --s;
+            --len;
+        }
+        else
+            return 0;
+    }
+    if( len == 0)
+        return 1;
+}
+
+int mystrlen(char *t)
+{
+    char *p;
+    p=t;
+
+    while(*p!='\0')
+        ++p;
+
+    return p-t;
 }
