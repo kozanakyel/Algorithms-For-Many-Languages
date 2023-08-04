@@ -1,2 +1,40 @@
-.out
-.vscode
+# Ignore compiled Python files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore Python virtual environment
+venv/
+env/
+
+# Ignore compiled object files and executables
+*.o
+*.exe
+*.out
+
+# Ignore IDE specific files (e.g., Visual Studio, Code::Blocks, etc.)
+*.suo
+*.ncb
+*.user
+*.sdf
+*.opensdf
+*.cproj
+*.vcxproj
+*.VC.db
+
+# Ignore compiled output directories
+Debug/
+Release/
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+CMakeLists.txt.user
+
+# Ignore code coverage reports
+coverage/
+
+# Ignore any build or output directories
+build/
+output/
