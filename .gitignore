@@ -6,6 +6,7 @@ __pycache__/
 # Ignore Python virtual environment
 venv/
 env/
+.vscode/
 
 # Ignore compiled object files and executables
 *.o

@@ -5,11 +5,6 @@
 
 using namespace std;
 
-/**
- * @author: Ugur AKYEL
- * @since: 29/11/2021
- *
- * */
 
 void print_array(int *arr, int l);
 int parent(int);
@@ -30,7 +25,7 @@ void gettime_quicksort(int *arr, int p, int r);
 int find_optimized_k(int * A, int n);
 
 int main(){
-  long unsigned int stdno = 20190808020;
+  long long int stdno = 20190808020;
 
   for(int i = 100; i <= 100000; i=i*10){
     cout << "--------------------------------" << endl;
