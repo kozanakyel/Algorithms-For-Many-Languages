@@ -1,4 +1,5 @@
 import math
+  
 
 def log2(n):
     return math.log(n)/math.log(2)
@@ -42,3 +43,6 @@ for k in range(len(complexities)):
         print(' '.join(map(lambda v: '{:.2e}'.format(v), vals)))
     else:
         print(' '.join(map(lambda v: str(int(math.floor(v))), vals)))
+
+
+    
