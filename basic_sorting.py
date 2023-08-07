@@ -31,7 +31,19 @@ def add_binary(a, b):
             carry = 0
     c[n] = carry
     return c
+
+
+def selection_sort(a: List):
+    for i in range(len(a)):
+        k = i      # k is minIndex
+        for j in range(i+1, len(a)):
+            if a[j] < a[k]:
+                k = j
+        a[i], a[k] = a[k], a[i]
         
+        
+
+                    
         
 class InsertionSortTestCase(unittest.TestCase):
     def random_array(self):
@@ -44,6 +56,23 @@ class InsertionSortTestCase(unittest.TestCase):
             sorted_arr.reverse()
             insertion_sort(arr)
             self.assertEqual(arr, sorted_arr)
+            
+class SelectionSortTestCase(unittest.TestCase):
+    def random_array(self):
+        return [random.randint(0,100) for _ in range(random.randint(0,100))]
+    
+    def test_random(self):
+        for _ in range(10000):
+            arr = self.random_array()
+            sorted_arr = sorted(arr)
+            selection_sort(arr)
+            self.assertEqual(arr, sorted_arr)
+            
+class AddBinaryTestCase(unittest.TestCase):
+    def test_carry(self):
+        a = [1, 0, 1]
+        b = [1, 1, 1]
+        self.assertEqual(add_binary(a, b), [0, 0, 1, 1])
             
             
 if __name__ == '__main__':
