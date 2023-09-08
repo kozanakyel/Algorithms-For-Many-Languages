@@ -1,4 +1,4 @@
-function permutation(str) {
+export default function permutation(str) {
     permutationHelper(str, "");
 }
 
@@ -15,3 +15,4 @@ function permutationHelper(str, prefix) {
 
 // Example usage:
 permutation("abc");
+

@@ -1,0 +1,23 @@
+{
+    "cells": [
+        {
+            "language": "typescript",
+            "source": [
+                "function permutation(str: string) : void {\r\n    permutationHelper(str, \"\");\r\n}\r\n\r\nfunction permutationHelper(str: string, prefix: string) : void {\r\n    if (str.length === 0) {\r\n        console.log(prefix);\r\n    } else {\r\n        for (let i = 0; i < str.length; i++) {\r\n            const rem = str.substring(0, i) + str.substring(i + 1);\r\n            permutationHelper(rem, prefix + str.charAt(i));\r\n        }\r\n    }\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
