@@ -3,7 +3,7 @@
         {
             "language": "javascript",
             "source": [
-                "partition = (A, p, r) => {\r\n let pivot = A[p];\r\n let i = p-1;\r\n let j = r;\r\n \r\n while(true){\r\n    do{j--;} while(A[j]>pivot);\r\n    do{i++;}while(A[i] < pivot);\r\n\r\n    if(i<j){\r\n        [A[i], A[j]] = [A[j], A[i]];\r\n    }else{\r\n        return j;\r\n    }\r\n }\r\n}"
+                "partition = (A, p, r) => {\r\n let pivot = A[p];\r\n let i = p-1;\r\n let j = r;\r\n \r\n while(true){\r\n    do{j--;} while(A[j]>pivot);\r\n    do{i++;} while(A[i] < pivot);\r\n\r\n    if(i<j){\r\n        [A[i], A[j]] = [A[j], A[i]];\r\n    }else{\r\n        return j;\r\n    }\r\n }\r\n}"
             ],
             "outputs": [
                 {
