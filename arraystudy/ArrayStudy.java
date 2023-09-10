@@ -34,7 +34,8 @@ public class ArrayStudy {
 
         boolean[] charSet = new boolean[128];
         for (int i = 0; i < str.length(); i++) {
-            int val = str.charAt(i);
+            int val = str.charAt(i); // charAt -> return int ASCI value
+            System.out.println((char) val);
             if (charSet[val]) {
                 return false;
             }
