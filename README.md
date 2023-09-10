@@ -1,1 +1,10 @@
-This repo shows my algorithms practise process for python and Cpython adoption. After this process we are easily increasing our machine learning python codes and project speed up. Not only related basic concepts additionally we purpoesses some algorithms and data structures concepts remeber and study again.
+## Algorithms Review
+
+This repo shows my algorithms practise process for Java, Python, C/C++ and Javascipt. Also it represents my catch-up drawing for new practises and review our interview processes
+
+- It includes my Data structure course Assignments and projects
+- It shows my Algorithms courses assignments
+- Some game project for algorithms development
+- All of the languages have different approach for each algorithms
+
+All this files and study should use for interview preparation for showing technical skills and also all of this written by me.
