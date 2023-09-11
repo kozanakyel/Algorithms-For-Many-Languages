@@ -1,5 +1,3 @@
-package arraystudy;
-
 import java.util.ArrayList;
 
 public class ArrayStudy {
@@ -42,6 +40,27 @@ public class ArrayStudy {
             charSet[val] = true;
         }
         return true;
+    }
+
+    public static boolean binarySearch(int[] data, int target, int low, int high){
+        if(low > high)
+            return false;
+        int mid = (low+high)/2;
+        if(data[mid]==target)
+            return true;
+        if(data[mid]<target)
+            return binarySearch(data, target, mid+1, high);
+        else
+            return binarySearch(data, target, low, mid-1);
+    }
+
+    public static void reverseArray(int[] data, int low, int high){
+        if(low<high){
+            int temp = data[low];
+            data[low] = data[high];
+            data[high] = temp;
+            reverseArray(data, low+1, high-1);
+        }
     }
 }
 
