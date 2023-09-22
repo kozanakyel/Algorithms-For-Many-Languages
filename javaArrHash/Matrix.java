@@ -1,24 +1,38 @@
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class Matrix {
     public static void main(String[] args) {
-        double[][] a = {
-                { 2, 3 },
-                { 4, 5 }
-        };
 
-        double[][] b = {
-                { 6, 7 },
-                { 8, 9 }
-        };
+        String str = "address@domain.com";
+        System.out.println(str.split("@")[1].split("\\.")[0]); 
 
-        double[][] result = matrixMultiplication(a, b);
+        Set s = new LinkedHashSet();
+        s.add("1");
+        s.add(1);
+        s.add(1);
+        s.add(2);
+        System.out.println(s.size());
 
-        // Print the result matrix
-        for (int i = 0; i < result.length; i++) {
-            for (int j = 0; j < result[0].length; j++) {
-                System.out.print(result[i][j] + " ");
-            }
-            System.out.println();
-        }
+        // double[][] a = {
+        //         { 2, 3 },
+        //         { 4, 5 }
+        // };
+
+        // double[][] b = {
+        //         { 6, 7 },
+        //         { 8, 9 }
+        // };
+
+        // double[][] result = matrixMultiplication(a, b);
+
+        // // Print the result matrix
+        // for (int i = 0; i < result.length; i++) {
+        //     for (int j = 0; j < result[0].length; j++) {
+        //         System.out.print(result[i][j] + " ");
+        //     }
+        //     System.out.println();
+        // }
     }
 
     static double[][] matrixMultiplication(double[][] a, double[][] b) {
@@ -31,5 +45,15 @@ public class Matrix {
                 for (int k = 0; k < n; k++)
                     c[i][j] += a[i][k] * b[k][j];
         return c;
+    }
+}
+
+class Price{
+    static double getPrice(){
+        return 100;
+    }
+
+    double getGrossPrice(){
+        return getPrice() * 1.18;
     }
 }
