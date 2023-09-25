@@ -121,6 +121,78 @@ def binary_search(a,v):
         else:
             rt=mid-1
     return None
+
+def binary_recursive(a,v):
+    n=len(a)
+    l=0
+    r=n-1
+    return binary_recursive_helper(a,n,l,r,v)
+
+def binary_recursive_helper(a,n,l,r,v):
+    if n==0:
+        return -1
+    if l>r: 
+        return -1
+    else:
+        m=(l+r)//2
+        if a[m]==v:
+            return m
+        elif a[m]>v:
+            return binary_recursive_helper(a,n,l,m,v)
+        elif a[m]<v:
+            return binary_recursive_helper(a,n,m+1,r,v)   
+
+
+def partition(A,p,r):
+    pivot = A[p]
+    i = p-1
+    j = r
+    while True:
+        while A[i]<pivot: 
+            i += 1
+        while A[j]>pivot: 
+            j -= 1
+        if i >= j: 
+            return j
+        A[i], A[j] = A[j], A[i]
+        print(A)
+
+def quicksort(A,p,r):
+    if p<r-1:
+        q = partition(A,p,r)
+        quicksort(A,p,q+1)
+        quicksort(A,q+1,r)
+  
+  
+class Sort:
+    def _quicksort(self, array: list, low: int, high: int) -> None:
+        if low < high:
+            pivot = self._partition(array, low, high)
+            self._quicksort(array, low, pivot)
+            self._quicksort(array, pivot + 1, high)
+
+    def _partition(self, array: list, low: int, high: int) -> int:
+        m = high+low
+        mid=m//2
+        pivot = array[mid]
+        i = low
+        j = high
+
+        while True:
+            while array[i] < pivot:
+                i += 1
+            while array[j] > pivot:
+                j -= 1
+            if i >= j:
+                return j
+            array[i], array[j] = array[j], array[i]
+            
+
+    def sort(self, array: list) -> list:
+        self._quicksort(array, 0, len(array) - 1)
+        return array      
+
+    
         
 
 class BinarySearchTestCase(unittest.TestCase):
@@ -131,7 +203,7 @@ class BinarySearchTestCase(unittest.TestCase):
         for _ in range(10000):
             a = sorted(self.random_array())
             v = random.randint(0, 100)
-            ret = binary_search(a, v)
+            ret = binary_recursive(a, v)
             if ret is None:
                 for val in a:
                     self.assertNotEqual(val, v)
@@ -170,12 +242,17 @@ class AddBinaryTestCase(unittest.TestCase):
             
             
 if __name__ == '__main__':
-    limit = sys.getrecursionlimit()
-    print('Before changing, limit of stack =', limit) 
-    sys.setrecursionlimit(100000)
-    unittest.main() 
+    # limit = sys.getrecursionlimit()
+    # print('Before changing, limit of stack =', limit) 
+    # sys.setrecursionlimit(100000)
+    # unittest.main() 
 
-    # a_t = [31,41,59,26,41,58]
+    a_t = [31,41,59,26,58]
+    quicksort(a_t, 0, len(a_t)-1)
+    print(a_t)
+    # ss = Sort()
+    # aa = ss.sort(a_t)
+    # print(aa)
     # insertion_sort(a_t)
     # k = linear_search(a_t, 26)
     # print(k)
