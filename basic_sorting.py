@@ -128,6 +128,7 @@ def binary_recursive(a,v):
     r=n-1
     return binary_recursive_helper(a,n,l,r,v)
 
+
 def binary_recursive_helper(a,n,l,r,v):
     if n==0:
         return -1
@@ -141,6 +142,7 @@ def binary_recursive_helper(a,n,l,r,v):
             return binary_recursive_helper(a,n,l,m,v)
         elif a[m]<v:
             return binary_recursive_helper(a,n,m+1,r,v)   
+
 
 
 def partition(A,p,r):
