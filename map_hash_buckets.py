@@ -45,7 +45,7 @@ def hash_code(s):
     h = 0
     for character in s:
         h = (h << 5 & mask) | (h >> 27)   # 5-bit cyclic shift
-        h += ord(character)  # return Unicode int with ord()
+        h += ord(character)  
     return h
 
 
