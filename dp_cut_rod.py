@@ -14,7 +14,7 @@ def cut_rod(p: List, n: Optional[int]) -> int:
 
 
 def memoized_cut_rod(p: List, n: Optional[int]) -> int:
-    r = [0]*n
+    r = [0]*(n+1)
     for i in range(0, n):
         r[i] = -1000
     return memoized_cut_rod_aux(p,n,r)
@@ -48,5 +48,5 @@ if __name__ == '__main__':
     n = 10
     p = [1,5,8,9,10,17,17,20,24,30]
     # p = [1,5,8,9]
-    q = bottom_up_cut_rod(p, n)
+    q = memoized_cut_rod(p, n)
     print(q)
