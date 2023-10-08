@@ -7,6 +7,7 @@ _local = threading.local()
 
 @contextmanager
 def acquire(*lock_state_state) -> None:
+    
     """
     Lock Objects has two states 'locked' and 'unlocked'.
     It has 2 basic methods acquire() and release().

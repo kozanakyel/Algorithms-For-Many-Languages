@@ -44,8 +44,7 @@ struct node *splay(struct node *root, int key) {
         return root;
  
     // Key lies in left subtree
-    if (root->key > key) {
-        // Key is not in tree, we are done
+        if (root->key > key) {
         if (root->left == NULL)
             return root;
  

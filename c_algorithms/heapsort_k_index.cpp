@@ -216,6 +216,8 @@ void heap_insert(int A[], int key, int n){
   A[i] = key;
 }
 
+
+
 int heap_extract_min(int A[], int n){
   if(n <= 0){
     return INT_MAX;
