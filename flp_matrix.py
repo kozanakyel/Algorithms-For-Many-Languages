@@ -12,7 +12,6 @@ So, we should determine whic is max from same Letters value....
 """
 
 def flipping_matrix(matrix):
-    # mirror matrix equation it is the ttricks
     s = 0
     n = len(matrix)
     for i in range(n//2):
