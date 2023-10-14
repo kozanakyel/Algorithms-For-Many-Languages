@@ -20,7 +20,27 @@ def flipping_matrix(matrix):
     return s
 
 
+
+
 if __name__ == '__main__':
-    n = [[2,3],[1,7]]
-    m = flipping_matrix(n)
-    print(m)
+    # n = [[2,3],[1,7]]
+    # m = flipping_matrix(n)
+    # print(m)
+    from BTrees.OOBTree import OOBTree
+    
+    t = OOBTree()
+    t.update({1: "red", 2: "green", 3: "blue", 4: "spades"})
+    len(t)
+
+    s = t.keys() # this is a "lazy" sequence object
+
+    print(
+        list(s), 
+        list(t.values()), 
+        list(t.values(1, 2)), 
+        list(t.values(2)), 
+        list(t.values(min=1, max=4)),
+        list(t.values(min=1, max=4, excludemin=True, excludemax=True))
+    )
+    
+    
