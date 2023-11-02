@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+#define abs(x) ((x) > 0 ? (x) : -(x))
 
 #define K 5
 
@@ -9,8 +13,21 @@
 #define MAXLINE 1000
 int max; /* maximum length seen so far */
 
+//octal
+#define VTAB '\013'      // Asci VERTICAL TAB
+#define BELL '\007'		// asci BELL CHARACTER
+//hexadecimal
+#define VT '\xb'
+#define BE '\x7'
+
+// short int ... /short is 16 bits / long at least 32 bits
+
 int xgetline(char line[], int maxline);
 void copy(char to[], char from[]);
+int bitcount(unsigned k);
+
+void reverse(char s[]);
+void itoa(int n, char k[]);
 
 int main(){
 
@@ -87,21 +104,49 @@ int main(){
 	// printf(", whspace = %d, other = %d", nwhite, nother);
 	
 
-	int len; /* current line length */
-	extern int max;
-	char line[MAXLINE]; /* current input line */
-	char longest[MAXLINE]; /* longest line saved here */
-	max = 0;
-	while ((len = xgetline(line, MAXLINE)) > 0)
-		if (len > max) {
-			max = len;
-			copy(longest, line);
-		}
-	if (max > 0) /* there was a line */
-		printf("%s", longest);
-	return 0;
+	// int len; /* current line length */
+	// extern int max;
+	// char line[MAXLINE]; /* current input line */
+	// char longest[MAXLINE]; /* longest line saved here */
+	// max = 0;
+	// while ((len = xgetline(line, MAXLINE)) > 0)
+	// 	if (len > max) {
+	// 		max = len;
+	// 		copy(longest, line);
+	// 	}
+	// if (max > 0) /* there was a line */
+	// 	printf("%s", longest);
+	// return 0;
 	// hello\n\0
+	char k[] = "he\vllo,  \"  \?  \v   " "\"w\vo\vr\tld\n";
+	int s = strlen(k);
+	char l[] = "123456";
+	char m[] = "LHFSDLSDH"   "   klhjsfk";
 
+	
+
+	printf("%d %d %d\n", s, atoi(l), bitcount(9724e5));
+	reverse(k);
+	printf("%s\n", k);
+
+	/**
+	 * char constant and string one letter not the same thing.
+	 * char const is 'x' and string is "x", the string has last value
+	 * as a '\0' for null character but char constat dont have it.
+	*/
+
+	int number;
+    char str[MAXLINE];
+
+    /*  number=-2345645; */
+
+    number = -2147483648;
+
+    printf("Integer %d printed as\n String:", number);
+
+    itoa(number, str);
+
+    printf("%s", str);
 }
 
 
@@ -125,6 +170,52 @@ void copy(char to[], char from[])
 	while ((to[i] = from[i]) != '\0')
 		++i;
 }
+
+int xstrlen(char s[])
+{
+	int i;
+	while (s[i] != '\0')
+		++i;
+	return i;
+}
+
+int bitcount(unsigned x)
+{
+	int b;
+	for (b = 0; x != 0; x >>= 1)
+		if (x & 01)
+			b++;
+	return b;
+}
+
+
+void reverse(char s[])
+{
+	int c, i, j;   // s as a temp variable for changing
+	for (i = 0, j = strlen(s)-1; i < j; i++, j--) {
+		c = s[i], s[i] = s[j], s[j] = c;
+	}
+}
+
+
+void itoa(int n, char s[]){
+	int i, sign;
+	sign = n;
+	i=0;
+
+	do{
+		s[i++]=abs(n%10)+'0';
+		printf("%c\n", (char)s[i]);
+	}while((n/=10)!=0);
+
+	if(sign<0)
+		s[i++]='-';
+	s[i]='\0';
+	reverse(s);
+}
+
+
+
 
 
 
